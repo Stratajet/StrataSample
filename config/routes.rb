@@ -1,5 +1,8 @@
 StrataSample::Application.routes.draw do
   resources :strata
+  match 'callback' => 'strata#callback'
+  match 'flight_list' => 'strata#flight_list'
+  
   
   root :to => 'strata#index'
   
