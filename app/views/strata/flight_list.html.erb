@@ -1,1 +1,22 @@
-<%= "#{CGI::escape_html(@events.inspect)}"%>
+<table style="padding:5px;">
+	<tr>
+		<td style="padding:5px;">ID</td>
+		<td style="padding:5px;">Aircraft Registration</td>
+		<td style="padding:5px;">Start Airfield</td>
+		<td style="padding:5px;">End Airfield</td>
+		<td style="padding:5px;">Start Time</td>
+		<td style="padding:5px;">End Time</td>
+	</tr>
+	
+	<% @events.each do |e| %>
+	<tr>
+		<td style="padding:5px;"><%= e.id %></td>
+		<td style="padding:5px;"><%= e.aircraft_registration %></td>
+		<td style="padding:5px;"><%= e.start_airfield %></td>
+		<td style="padding:5px;"><%= e.end_airfield %></td>
+		<td style="padding:5px;"><%= e.start_time %></td>
+		<td style="padding:5px;"><%= e.end_time %></td>
+
+	</tr>	
+	<% end %>
+</table>

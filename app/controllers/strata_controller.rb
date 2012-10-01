@@ -1,7 +1,8 @@
 class StrataController < ApplicationController
-  APP_ID = "1d6c8576fa997b955b0e7d748b08948268e470c1b0969b3909de96a441aa8819"
-  SECRET = "3d6983c395bead24f4cfd3aee74a9001d4e83b80c74bc5500fac48a6cfb888ab"
+  APP_ID = "dc1614e4f5038942aff26fb0abc79a5cb7cba2a5d664ea4ddcd935068e6a91a6"
+  SECRET = "35344a52cd09c44c8fe9b9408ef0dfd57fe21e4fb4a55cdb2a083e8cbc6f50eb"
   CALLBACK = "http://localhost:3000/callback"
+  SITE = "http://testbed.stratafleet.com/"
   
   # This is the main page that generates the url required for authorizing this application
   def index
@@ -25,13 +26,13 @@ class StrataController < ApplicationController
   
   # This uses the token to get a list of flights
   def flight_list
-    operator = Stratajet::Operator.new(APP_ID, SECRET, session[:access_token])
+    operator = StrataGem::Operator.new(APP_ID, SECRET, session[:token], false)
     @events = operator.index
   end
 
   
   protected
   def client
-    OAuth2::Client.new(APP_ID, SECRET, site: "http://testbed.stratafleet.com/")
+    OAuth2::Client.new(APP_ID, SECRET, site: SITE)
   end
 end

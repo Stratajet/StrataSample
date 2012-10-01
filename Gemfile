@@ -7,6 +7,7 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 gem 'oauth2'
+gem 'strata_gem'
 
 
 # Gems used only for assets and not required
